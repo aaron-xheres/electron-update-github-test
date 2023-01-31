@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <span id="version">Current Version: </span><br />
+    <br />
+    <button id="check-update-notify">Check for Update & Notify</button><br />
+    <button id="check-update">Check for Update</button><br />
+    <span id="update-version">Update Version: -</span><br />
+    <br />
+    <button id="start-update" disabled="true">Start Update</button><br />
+    <span id="update-download-progress"></span>
+    <script src="./pageScript.js"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+# Just incase accidentally push commits
+# Ignore Everything
+*
+
+# But Readme
+!readme.md

@@ -1,0 +1,30 @@
+{
+  "name": "electron-update-github",
+  "version": "0.0.3",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder --publish never",
+    "release": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron-updater": "^5.3.0"
+  },
+  "devDependencies": {
+    "electron": "^22.1.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "electron-update-github",
+    "win": {
+      "publish": [
+        "github"
+      ]
+    }
+  }
+}

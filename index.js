@@ -1,0 +1,85 @@
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
+
+const bloat = [
+  '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'
+]
+
+let window;
+const createWindow = () => {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+    },
+  });
+
+  win.loadFile('index.html');
+  window = win;
+};
+
+app.on('ready', () => {
+  createWindow();
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') app.quit();
+});
+
+app.on('activate', () => {
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
+
+
+// ------------------------------
+// UPDATER
+const { ipcMain } = require('electron');
+const { autoUpdater } = require('electron-updater');
+
+// Set auto download to false
+// If the update is to be auto downloaded, ensure that event handlers
+// are ready before calling checkForUpdates
+autoUpdater.autoDownload = false;
+
+ipcMain.handle('get-current-version', (e) => {
+  return app.getVersion();
+});
+
+ipcMain.handle('check-update', async (e, notify) => {
+  let checkUpdateStatus;
+  if(notify) {
+    // Notify using OS notification
+    checkUpdateStatus = await autoUpdater.checkForUpdatesAndNotify();
+  } else {
+    // Just check for update
+    checkUpdateStatus = await autoUpdater.checkForUpdates();
+  }
+
+  if (!checkUpdateStatus || !checkUpdateStatus.updateInfo) {
+    return undefined;
+  }
+
+  return checkUpdateStatus.updateInfo.version;
+});
+
+ipcMain.handle('start-update', async (e) => {
+  // Event fires when downloading update
+  autoUpdater.on('download-progress', (info) => {
+    if (window) {
+      window.webContents.send('download-progress', info);
+    }
+  });
+  // Event fires when update is downloaded
+  autoUpdater.on('update-downloaded', (e) => {
+    // Quit and Install update after update-downloaded event fires
+    autoUpdater.quitAndInstall(true, true);
+  });
+
+  // Start downloading update (Auto Download is set to false in this demo)
+  autoUpdater.downloadUpdate();
+});
