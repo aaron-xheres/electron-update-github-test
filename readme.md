@@ -5,8 +5,8 @@ Note that electron-builder's auto updater only accepts NSIS installer for Window
 ## electron-builder
 https://www.electron.build/
 
-## Publishing
-https://www.electron.build/configuration/publish
+## Publishing (GitHub)
+https://www.electron.build/configuration/publish#recommended-github-releases-workflow
 
 ## Auto Update
 https://www.electron.build/auto-update
